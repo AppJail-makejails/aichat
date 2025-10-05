@@ -37,7 +37,6 @@ appjail start -V AICHAT_CLI_ONLY=1 aichat
 
 ### Arguments
 
-* `aichat_plaftorm` (default: `host`).
 * `aichat_ajspec` (default: `gh+AppJail-makejails/aichat`): Entry point where the `appjail-ajspec(5)` file is located.
 * `aichat_tag` (default: `%%TAG1%%`): see [#tags](#tags).
 
