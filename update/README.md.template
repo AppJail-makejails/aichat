@@ -15,8 +15,14 @@ appjail makejail \
     -o virtualnet=":<random> default" \
     -o nat \
     -o expose=8000
-appjail start aichat
+appjail start \
+    -V AICHAT_MODEL=gemini:gemini-2.5-flash \
+    -V AICHAT_PLATFORM=gemini \
+    -V GEMINI_API_KEY=abc1def-hi2jklm3no4 \
+    aichat
 ```
+
+**See also**: https://github.com/sigoden/aichat/wiki/Environment-Variables
 
 **Using AIChat only from the CLI**:
 
