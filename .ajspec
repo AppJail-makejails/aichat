@@ -1,0 +1,17 @@
+tags+: 13.5
+13.5.arch: amd64
+13.5.name: "aichat"
+13.5.timestamp.amd64: 1759696601
+13.5.sum.amd64: 463a4979753cede1480c233ff2bc08f77322017a33cf3824685eb1376a91b0e0
+13.5.size.amd64: 35974271
+13.5.source.amd64: "https://images.all101bsd.download/aichat/13.5-amd64-image.appjail"
+13.5.source.amd64+: "http://appjail.hpc.at/aichat/13.5-amd64-image.appjail"
+tags+: 14.3
+14.3.arch: amd64
+14.3.name: "aichat"
+14.3.timestamp.amd64: 1759696684
+14.3.sum.amd64: b25b30c488d5c5462d63b9e9fae9181c4ac42046f1085a3e34080f0b86e38b67
+14.3.size.amd64: 35617717
+14.3.source.amd64: "https://images.all101bsd.download/aichat/14.3-amd64-image.appjail"
+14.3.source.amd64+: "http://appjail.hpc.at/aichat/14.3-amd64-image.appjail"
+maintenance: "This image is uploading, please wait a moment and try again. If you are importing this image using a Makejail that has the '--<name>_ajspec' argument, you can use the 'reproduce' method to use 'appjail-reproduce'. See 'appjail-image(5)' for details."
