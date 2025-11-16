@@ -1,16 +1,17 @@
 tags+: 13.5
 13.5.arch: amd64
 13.5.name: "aichat"
-13.5.timestamp.amd64: 1761510959
-13.5.sum.amd64: d9d44897674900f119ca8474f6399776d26c88f49a49da612c5f39ec4d8eaa79
-13.5.size.amd64: 36194024
+13.5.timestamp.amd64: 1763325398
+13.5.sum.amd64: 45d20fd9fd0c9d9be4e8d74e9fd48f11e205708f0837c90c7435b090f839957d
+13.5.size.amd64: 35950376
 13.5.source.amd64: "https://images.all101bsd.download/aichat/13.5-amd64-image.appjail"
 13.5.source.amd64+: "http://appjail.hpc.at/aichat/13.5-amd64-image.appjail"
 tags+: 14.3
 14.3.arch: amd64
 14.3.name: "aichat"
-14.3.timestamp.amd64: 1761511080
-14.3.sum.amd64: 032ac17220c96a53992625eb661b983869ffca1b6fb14f533a6f53e6d49a7d98
-14.3.size.amd64: 35816273
+14.3.timestamp.amd64: 1763325491
+14.3.sum.amd64: 9ea4ec3ed7dc13a6330cc867be05fa4979c43f2b3c4af8af506f83daa66b5afe
+14.3.size.amd64: 36196008
 14.3.source.amd64: "https://images.all101bsd.download/aichat/14.3-amd64-image.appjail"
 14.3.source.amd64+: "http://appjail.hpc.at/aichat/14.3-amd64-image.appjail"
+maintenance: "This image is uploading, please wait a moment and try again. If you are importing this image using a Makejail that has the '--<name>_ajspec' argument, you can use the 'reproduce' method to use 'appjail-reproduce'. See 'appjail-image(5)' for details."
