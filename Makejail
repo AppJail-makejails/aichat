@@ -1,6 +1,6 @@
 INCLUDE options/options.makejail
 
-ARG aichat_tag=13.5
+ARG aichat_tag=14.3
 ARG aichat_ajspec=gh+AppJail-makejails/aichat
 
 FROM --entrypoint "${aichat_ajspec}" aichat:${aichat_tag}
