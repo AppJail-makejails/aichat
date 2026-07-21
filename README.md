@@ -6,43 +6,56 @@ github.com/sigoden/aichat
 
 ## How to use this Makejail
 
-**Start lightweight built-in HTTP server**:
+### Start lightweight built-in HTTP server
 
-```sh
-appjail makejail \
-    -j aichat \
-    -f gh+AppJail-makejail/aichat \
+```console
+$ appjail oci run -Pd \
+    -o overwrite=force \
     -o virtualnet=":<random> default" \
     -o nat \
-    -o expose=8000
-appjail start \
-    -V AICHAT_MODEL=gemini:gemini-2.5-flash \
-    -V AICHAT_PLATFORM=gemini \
-    -V GEMINI_API_KEY=abc1def-hi2jklm3no4 \
-    aichat
+    -e AICHAT_MODEL=gemini:gemini-3.5-flash-lite \
+    -e AICHAT_PLATFORM=gemini \
+    -e GEMINI_API_KEY=abc-def-hij-1234 \
+    ghcr.io/appjail-makejails/aichat aichat
 ```
 
-**See also**: https://github.com/sigoden/aichat/wiki/Environment-Variables
+### Using AIChat only from the CLI
 
-**Using AIChat only from the CLI**:
-
-```sh
-appjail makejail \
-  -j aichat \
-  -f gh+AppJail-makejails/aichat \
-  -o virtualnet=":<random> default" \
-  -o nat
-appjail start -V AICHAT_CLI_ONLY=1 aichat
+```console
+$ appjail oci run \
+    -o overwrite=force \
+    -o virtualnet=":<random> default" \
+    -o nat \
+    -o ephemeral \
+    -e AICHAT_MODEL=gemini:gemini-3.5-flash-lite \
+    -e AICHAT_PLATFORM=gemini \
+    -e GEMINI_API_KEY=abc-def-hij-1234 \
+    ghcr.io/appjail-makejails/aichat aichat-cli \
+    aichat &&
+  appjail stop aichat-cli
 ```
 
-### Arguments
+### Arguments (stage: build)
 
-* `aichat_ajspec` (default: `gh+AppJail-makejails/aichat`): Entry point where the `appjail-ajspec(5)` file is located.
-* `aichat_tag` (default: `14.3`): see [#tags](#tags).
+* `aichat_from` (default: `ghcr.io/appjail-makejails/aichat`): Location of OCI image. See also [OCI Configuration](#oci-configuration).
+* `aichat_tag` (default: `latest`): OCI image tag. See also [OCI Configuration](#oci-configuration).
 
-## Tags
+### Environment (OCI image)
 
-| Tag           | Arch    | Version            | Type   |
-| ------------- | --------| ------------------ | ------ |
-| `14.3`    | `amd64` | `14.3-RELEASE` | `thin` |
-| `15`    | `amd64` | `15` | `thin` |
+* `PGID` (default: `1000`): Equivalent to `PUID` but for the Process Group ID.
+* `PUID` (default: `1000`): Process User ID for the container's main process, allowing you to match the owner of files written to mounted host volumes to your host system's user. Writable volumes are changed based on this environment variable.
+
+## OCI Configuration
+
+```yaml
+build:
+  variants:
+    - tag: 15.1
+      containerfile: Containerfile
+      aliases: ["latest"]
+      default: true
+      args:
+        FREEBSD_RELEASE: "15.1"
+        NO_PKGCLEAN: "1"
+      cache_dirs: ["pkgcache0:/var/cache/pkg"]
+```

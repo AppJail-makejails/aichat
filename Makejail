@@ -1,16 +1,5 @@
-INCLUDE options/options.makejail
+ARG aichat_from=ghcr.io/appjail-makejails/aichat
+ARG aichat_tag=latest
 
-ARG aichat_tag=14.3
-ARG aichat_ajspec=gh+AppJail-makejails/aichat
-
-FROM --entrypoint "${aichat_ajspec}" aichat:${aichat_tag}
-
-COPY scripts
-
-STOP
-
-STAGE start
-
-ENV AICHAT_SERVE_ADDR=0.0.0.0:8000
-
-RUN /scripts/start-aichat.sh
+OPTION overwrite=force
+OPTION from=${aichat_from}:${aichat_tag}
